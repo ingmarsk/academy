@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :courses, through: :registrations
   has_many :votes, as: :voteable
 
-  validates_uniqueness_of :email
+  validates :email, presence: true, uniqueness: true
 end

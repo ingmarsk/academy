@@ -11,6 +11,10 @@ class Vote < ApplicationRecord
   # Get votes given to a user => user.votes
   # Get votes given to a course => course.votes
 
-  # A user can only vote himself, another teacher or a course just once
+  validates_presence_of :voteable_type
+  validates_presence_of :voteable_id
+  validates_presence_of :user_id
+
+  # A user can only vote himself or another user/course just once
   validates_uniqueness_of :user_id, scope: %i(voteable_id voteable_type)
 end

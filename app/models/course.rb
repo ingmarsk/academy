@@ -3,5 +3,5 @@ class Course < ApplicationRecord
   has_many :users, through: :registrations
   has_many :votes, as: :voteable
 
-  validates_uniqueness_of :title
+  validates :title, presence: true, uniqueness: true
 end
