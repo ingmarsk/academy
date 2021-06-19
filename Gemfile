@@ -19,12 +19,10 @@ gem 'simple_form'
 gem 'hamlit'
 
 group :development, :test do
+  gem 'rexml', '~> 3.2', '>= 3.2.5'
   gem 'html2haml'
-  gem 'factory_bot_rails', '~> 6.1'
   gem 'faker'
   gem 'pry'
-  gem 'rubocop', '~> 0.57.2', require: false
-  gem 'brakeman', require: false
 end
 
 group :development do
@@ -32,15 +30,19 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
-  gem 'rails-controller-testing'
-  gem 'shoulda'
-  gem 'shoulda-matchers'
+  gem 'rubocop', '~> 0.57.2', require: false
+  gem 'brakeman', require: false
 end
 
 group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'simplecov', '~> 0.21.2'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'rails-controller-testing'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
