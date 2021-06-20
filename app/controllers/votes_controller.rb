@@ -4,12 +4,12 @@ class VotesController < ApplicationController
 
   def create
     Vote.create(voteable: @voteable, user_id: current_user.id)
-    redirect_to admin_courses_path, notice: "#{@voteable.class.name} voted."
+    redirect_back fallback_location: root_path, notice: "#{@voteable.class.name} voted."
   end
 
   def destroy
     @vote.destroy
-    redirect_to admin_courses_path, notice: "#{@vote.voteable.class.name} unvoted."
+    redirect_back fallback_location: root_path, notice: "#{@vote.voteable.class.name} unvoted."
   end
 
   private

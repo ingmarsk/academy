@@ -10,7 +10,7 @@ class Admin::VotesControllerTest < ActionDispatch::IntegrationTest
   test 'should vote a course' do
     assert_difference 'Vote.count', 1 do
       post votes_url, params: valid_vote_params(@course)
-      assert_redirected_to admin_courses_url
+      assert_redirected_to root_url
       assert_equal 1, @course.votes.size
     end
   end
@@ -20,7 +20,7 @@ class Admin::VotesControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference 'Vote.count', -1 do
       delete vote_url(@vote)
-      assert_redirected_to admin_courses_url
+      assert_redirected_to root_url
       assert_equal 0, @course.votes.size
     end
   end
@@ -28,7 +28,7 @@ class Admin::VotesControllerTest < ActionDispatch::IntegrationTest
   test 'should vote another user' do
     assert_difference 'Vote.count', 1 do
       post votes_url, params: valid_vote_params(@another_user)
-      assert_redirected_to admin_courses_url
+      assert_redirected_to root_url
       assert_equal 1, @another_user.votes.size
     end
   end
@@ -38,7 +38,7 @@ class Admin::VotesControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference 'Vote.count', -1 do
       delete vote_url(@vote)
-      assert_redirected_to admin_courses_url
+      assert_redirected_to root_url
       assert_equal 0, @another_user.votes.size
     end
   end
@@ -46,7 +46,7 @@ class Admin::VotesControllerTest < ActionDispatch::IntegrationTest
   test 'should user vote himself' do
     assert_difference 'Vote.count', 1 do
       post votes_url, params: valid_vote_params(@user)
-      assert_redirected_to admin_courses_url
+      assert_redirected_to root_url
       assert_equal 1, @user.votes.size
     end
   end
@@ -56,7 +56,7 @@ class Admin::VotesControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference 'Vote.count', -1 do
       delete vote_url(@vote)
-      assert_redirected_to admin_courses_url
+      assert_redirected_to root_url
       assert_equal 0, @user.votes.size
     end
   end
