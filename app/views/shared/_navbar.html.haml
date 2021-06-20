@@ -1,0 +1,15 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container-fluid
+    %a.navbar-brand{ href: root_path } Academy
+    %button.navbar-toggler
+      %span.navbar-toggler-icon
+    #navbarText.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        %li.nav-item
+          = link_to 'My Courses', admin_root_path, class: 'nav-link'
+      %span.navbar-text
+        - if user_signed_in?
+          %b= current_user.email
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ms-3 btn btn-sm btn-outline-danger'
+        - else
+          = link_to 'Log In', new_user_session_path, class: 'ms-3 btn btn-sm btn-outline-primary'

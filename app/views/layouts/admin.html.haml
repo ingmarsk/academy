@@ -9,14 +9,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'admin/shared/flashes'
-
-    -# NAVIGATION
-    = link_to 'All Courses', root_path
-
-    %p
-      Logged in as
-      %b= current_user.email
-    = button_to 'Logout', destroy_user_session_path, method: :delete
-
-    = yield
+    = render 'shared/navbar'
+    .container
+      = render 'admin/shared/flashes'
+      = yield

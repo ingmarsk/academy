@@ -1,17 +1,22 @@
-%h1 My Courses
-%table
+%h1.mb-3.fw-light My Courses
+
+%table.table.table-hover
   %thead
     %tr
       %th Title
       %th Votes
-      %th{colspan: '3'}
+      %th Created At
+      %th
   %tbody
     - @courses.each do |course|
       %tr
         %td= course.title
         %td= course.votes.size
-        %td= link_to 'Show', admin_course_path(course)
-        %td= link_to 'Edit', edit_admin_course_path(course)
-        %td= link_to 'Delete', admin_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'Register New Course', new_admin_course_path
+        %td= l course.created_at.to_date, format: :default
+        %td
+          .btn-group-sm{role: 'group'}
+            = link_to 'Show', admin_course_path(course), class: 'btn btn-outline-dark'
+            = link_to 'Edit', edit_admin_course_path(course), class: 'btn btn-outline-dark'
+            = link_to 'Delete', admin_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger'
+
+= link_to 'Register New Course', new_admin_course_path, class: 'btn btn-primary'

@@ -8,10 +8,11 @@ module ButtonsHelper
       user_id: current_user.id)
 
     if vote.present?
-      link_to "Remove vote", vote_path(vote), method: :delete
+      link_to 'Remove your vote', vote_path(vote), method: :delete, class: 'btn btn-danger'
     else
-      button_to "Vote #{voteable_class.downcase}",
-        votes_path(voteable_type: voteable_class, voteable_id: voteable.id)
+      link_to "Vote #{voteable_class.downcase}",
+        votes_path(voteable_type: voteable_class, voteable_id: voteable.id),
+          method: :post, class: 'btn btn-success'
     end
   end
 end

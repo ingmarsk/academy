@@ -1,2 +1,7 @@
-%p.notice= notice
-%p.alert= alert
+- if notice.present?
+  .alert.alert-success{ role: 'alert' }
+    = notice
+
+- if alert.present?
+  .alert.alert-danger{ role: 'alert' }
+    = alert

@@ -1,4 +1,7 @@
-= form_tag url_for, method: :get do
-  = text_field_tag :query, params[:query], placeholder: 'Find by title or teacher'
-  = button_tag 'Search', type: :submit
-  = link_to 'Reset search', url_for
+%form.row.g-2
+  = form_tag url_for, method: :get do
+    .col-sm-3
+      = text_field_tag :query, params[:query], placeholder: 'Find by course or teacher...', class: 'form-control'
+    .col-auto
+      = button_tag 'Search', type: :submit, class: 'btn btn-primary mb-3'
+      = link_to 'Reset search', url_for, class: 'btn btn-secondary mb-3'
