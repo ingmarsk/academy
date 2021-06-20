@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Academy Admin
+    = content_tag(:meta, nil, content: 'text/html; charset=UTF-8')
+    = content_tag(:meta, nil, content: 'width=device-width,initial-scale=1; charset=UTF-8', name: 'viewport')
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'admin/shared/flashes'
+
+    -# NAVIGATION
+    = link_to 'All Courses', root_path
+
+    %p
+      Logged in as
+      %b= current_user.email
+    = button_to 'Logout', destroy_user_session_path, method: :delete
+
+    = yield

@@ -1,0 +1,19 @@
+%p
+  %strong Title
+  = @course.title
+
+%p
+  %strong Teachers
+  %ul
+  - @course.users.each do |user|
+    %li= link_to "#{user.email}", user_path(user)
+
+%p
+  %strong Description
+  = @course.description
+
+= vote_button(@course)
+
+%br
+
+= link_to 'Back', courses_path

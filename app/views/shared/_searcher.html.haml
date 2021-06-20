@@ -1,0 +1,4 @@
+= form_tag url_for, method: :get do
+  = text_field_tag :query, params[:query], placeholder: 'Find by title or teacher'
+  = button_tag 'Search', type: :submit
+  = link_to 'Reset search', url_for

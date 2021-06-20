@@ -1,0 +1,24 @@
+%br
+
+%h1 All Courses
+
+%br
+
+= render 'shared/searcher'
+
+%br
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Teacher
+      %th Votes
+      %th{colspan: '3'}
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= course.title
+        %td= course.users.map(&:email).join(', ')
+        %td= course.votes.size
+        %td= link_to 'Show', course_path(course)

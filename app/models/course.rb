@@ -5,5 +5,5 @@ class Course < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
 
-  default_scope { order(created_at: :desc) }
+  default_scope -> { left_joins(:votes).group('courses.id').order('count(votes.id) desc') }
 end

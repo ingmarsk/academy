@@ -19,13 +19,11 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'should register multiple courses' do
-    assert_difference 'Course.count', 2 do
-      2.times do
-        user.courses.create(title: Faker::Educator.course_name)
-      end
+    2.times do
+      user.courses.create(title: Faker::Educator.course_name)
     end
 
-    assert_equal 2, user.courses.size
+    assert_equal 2, user.courses.length
   end
 
   test 'should not register same course twice' do
@@ -33,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
       user.registrations.create(course: course)
     end
 
-    assert_equal 1, user.courses.size
+    assert_equal 1, user.courses.length
     assert_equal course.id, user.courses.first.id
   end
 
@@ -45,7 +43,7 @@ class UserTest < ActiveSupport::TestCase
       Vote.create(voteable: user, user_id: other_user.id)
     end
 
-    assert_equal 2, user.votes.size
+    assert_equal 2, user.votes.length
   end
 
   test 'should vote himself just once' do
@@ -54,7 +52,7 @@ class UserTest < ActiveSupport::TestCase
         Vote.create(voteable: user, user_id: user.id)
       end
     end
-    assert_equal 1, user.votes.size
+    assert_equal 1, user.votes.length
   end
 
   test 'should vote for another user just once' do
@@ -64,7 +62,7 @@ class UserTest < ActiveSupport::TestCase
         Vote.create(voteable: another_user, user_id: user.id)
       end
     end
-    assert_equal 1, another_user.votes.size
+    assert_equal 1, another_user.votes.length
   end
 
   test 'should vote for same course just once' do
@@ -73,7 +71,7 @@ class UserTest < ActiveSupport::TestCase
         Vote.create(voteable: course, user_id: user.id)
       end
     end
-    assert_equal 1, course.votes.size
+    assert_equal 1, course.votes.length
   end
 
   private
