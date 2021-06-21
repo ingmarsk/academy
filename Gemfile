@@ -17,11 +17,11 @@ gem 'devise', '~> 4.8'
 
 gem 'simple_form'
 gem 'hamlit'
+gem 'faker'
 
 group :development, :test do
   gem 'rexml', '~> 3.2', '>= 3.2.5'
   gem 'html2haml'
-  gem 'faker'
   gem 'pry'
 end
 
