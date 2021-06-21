@@ -1,24 +1,28 @@
-# README
+# Academy :books: :globe_with_meridians:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Academy** is a prototype for an online course platform.
 
-Things you may want to cover:
+## Dependencies
 
-* Ruby version
+|  Dependency | Version |
+| ------------ | ------------ |
+|  Ruby | 3.0.0  |
+|  Rails | 6.1.3.2  |
+| Bundler |2.2.3|
 
-* System dependencies
 
-* Configuration
+## Setup
 
-* Database creation
+`$ bundle install`
 
-* Database initialization
+`$ db:setup` (**seed** samples)
 
-* How to run the test suite
+`$ rails s` (http://localhost:3000/)
 
-* Services (job queues, cache servers, search engines, etc.)
+Please seed the db to have some data to play arround with!
 
-* Deployment instructions
+You can sign in as a new user or log in with a user generated from the seeds:
 
-* ...
+**email:** user@academy.com
+
+**password:** *password*
