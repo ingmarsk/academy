@@ -2,6 +2,8 @@
 
 **Academy** is a prototype for an online course platform.
 
+https://academy-platform.herokuapp.com/
+
 ## Dependencies
 
 |  Dependency | Version |
